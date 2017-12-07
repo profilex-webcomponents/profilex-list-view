@@ -1,0 +1,88 @@
+<link rel="import" href="/node_modules/@polymer/polymer/polymer-element.html">
+<link rel="import" href="/node_modules/profilex-common-css/components/reset.html">
+<link rel="import" href="/node_modules/profilex-common-css/components/common.html">
+<link rel="import" href="/node_modules/profilex-common-css/components/flexgrid.html">
+<link rel="import" href="/node_modules/profilex-common-css/components/formcontrols.html">
+<link rel="import" href="/node_modules/profilex-common-css/components/table.html">
+
+<link rel="import">
+<dom-module id="profilex-list-view">
+    <template>
+        <style include="profilex-reset"></style>
+        <style include="profilex-common"></style>
+        <style include="profilex-flexgrid"></style>
+        <style include="profilex-formcontrols"></style>
+        <style include="profilex-table"></style>
+       <table class="stack">
+      <thead>
+        <tr>
+          <th width="30"></th>
+          <th>Table Header 1</th>
+          <th width="150">Table Header 2</th>
+          <th width="150">Table Header 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+          <td>Content Goes Here</td>
+          <td>Content Goes Here</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+          <td>Content Goes Here</td>
+          <td>Content Goes Here</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+          <td>Content Goes Here</td>
+          <td>Content Goes Here</td>
+        </tr>
+      </tbody>
+    </table>
+    </template>
+    <script>
+        /**
+         * @customElement
+         * @polymer
+         */
+        class ProfilexListView extends Polymer.Element {
+
+            static get is() {
+                return 'profilex-list-view';
+            }
+            static get properties() {
+                return {
+                    oldUrl: String,
+                    currentUrl: String,
+                    route: String
+                };
+            }
+            ready() {
+                super.ready();
+                this.oldUrl = "";
+                this.currentUrl = window.location.href;
+                this.checkURLchange();
+            }
+            checkURLchange() {
+                setInterval(function() {
+                    if ((this.currentUrl != this.oldUrl) || !this.oldUrl) {
+                        this.oldUrl = this.currentUrl;
+                        this.event = new CustomEvent("urlchanged", {
+                            detail: {
+                                url: this.oldUrl
+                            }
+                        });
+                        window.dispatchEvent(this.event);
+                        this.checkURLchange(window.location.href);
+                    }
+                }.bind(this), 2000);
+            }
+        }
+
+        window.customElements.define(ProfilexListView.is, ProfilexListView);
+    </script>
+</dom-module>
