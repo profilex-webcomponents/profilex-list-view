@@ -1,13 +1,13 @@
 {
-  "name": "profilex-list-view",
-  "version": "1.0.2",
-  "main": "index.js",
-  "repository": "https://github.com/profilex-webcomponents/profilex-list-view.git",
-  "author": "<balasuresh_varadharajan@trimble.com>",
-  "license": "MIT",
-  "dependencies": {
-    "@polymer/polymer": "^2.3.0",
-    "@webcomponents/webcomponentsjs": "^1.0.20",
-    "profilex-common-css": "^1.0.10"
-  }
+    "name": "profilex-list-view",
+    "version": "1.0.3",
+    "main": "index.js",
+    "repository": "https://github.com/profilex-webcomponents/profilex-list-view.git",
+    "author": "<balasuresh_varadharajan@trimble.com>",
+    "license": "MIT",
+    "dependencies": {
+        "@polymer/polymer": "^2.3.0",
+        "@webcomponents/webcomponentsjs": "^1.0.20",
+        "profilex-common-css": "^1.0.13"
+    }
 }
