@@ -52,31 +52,10 @@
                 return 'profilex-list-view';
             }
             static get properties() {
-                return {
-                    oldUrl: String,
-                    currentUrl: String,
-                    route: String
-                };
+                return {};
             }
             ready() {
                 super.ready();
-                this.oldUrl = "";
-                this.currentUrl = window.location.href;
-                this.checkURLchange();
-            }
-            checkURLchange() {
-                setInterval(function() {
-                    if ((this.currentUrl != this.oldUrl) || !this.oldUrl) {
-                        this.oldUrl = this.currentUrl;
-                        this.event = new CustomEvent("urlchanged", {
-                            detail: {
-                                url: this.oldUrl
-                            }
-                        });
-                        window.dispatchEvent(this.event);
-                        this.checkURLchange(window.location.href);
-                    }
-                }.bind(this), 2000);
             }
         }
 
