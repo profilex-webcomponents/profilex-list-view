@@ -1,6 +1,6 @@
 {
   "name": "profilex-list-view",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": "https://github.com/profilex-webcomponents/profilex-list-view.git",
   "author": "<balasuresh_varadharajan@trimble.com>",
